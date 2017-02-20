@@ -1,6 +1,7 @@
 package com.bwie.test.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -29,7 +30,7 @@ public class HomePage extends Fragment {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     
-    private String[]title={"推荐","热点","北京","社会","娱乐","军事","科技","汽车","体育","财经"};
+    private String[]title={"推荐","热点","娱乐","电影","游戏","社会","笑话","军事","科技","汽车","体育","财经"};
     private List<Fragment> list;
 
     @Nullable
@@ -39,11 +40,19 @@ public class HomePage extends Fragment {
         tabLayout = (TabLayout) view.findViewById(R.id.tablayout);
         viewPager = (ViewPager) view.findViewById(R.id.vp);
         
+       
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         initData();
-        
+
         viewPager.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
+               
                 return list.get(position);
             }
 
@@ -59,14 +68,17 @@ public class HomePage extends Fragment {
         });
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(viewPager);
-        
-        return view;
+        viewPager.setOffscreenPageLimit(3);
+
     }
 
     private void initData() {
         list = new ArrayList<>();
         for(int i=0;i<title.length;i++) {
+            Bundle bundle= new Bundle();
+            bundle.putInt("id",i);
             TitleFragment titleFragment = new TitleFragment();
+            titleFragment.setArguments(bundle);
             list.add(titleFragment);
         }
     }
