@@ -41,6 +41,7 @@ public class TitleFragment extends Fragment implements PullToRefreshListView.OnR
         view = View.inflate(getActivity(), R.layout.titlefragment, null);
         initView();
         return view;
+        
     }
 
     @Override
