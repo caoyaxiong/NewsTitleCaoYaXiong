@@ -15,11 +15,11 @@ import com.bwie.test.R;
  * 3. @date 2017/2/10 10:00
  */
 
-public class WeatherPage extends Fragment {
+public class AttentionPage extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=View.inflate(getActivity(), R.layout.weather,null);
+        View view=View.inflate(getActivity(), R.layout.attention,null);
         return view;
     }
 }

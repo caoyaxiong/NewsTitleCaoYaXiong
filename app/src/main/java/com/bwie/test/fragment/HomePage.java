@@ -1,5 +1,6 @@
 package com.bwie.test.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
@@ -13,8 +14,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.bwie.test.R;
+import com.bwie.test.activity.ChannerMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,7 @@ public class HomePage extends Fragment {
     
     private String[]title={"推荐","热点","娱乐","电影","游戏","社会","笑话","军事","科技","汽车","体育","财经"};
     private List<Fragment> list;
+    private ImageView imageView;
 
     @Nullable
     @Override
@@ -39,7 +43,7 @@ public class HomePage extends Fragment {
         View view=View.inflate(getActivity(), R.layout.homepagelayout,null);
         tabLayout = (TabLayout) view.findViewById(R.id.tablayout);
         viewPager = (ViewPager) view.findViewById(R.id.vp);
-        
+        imageView = (ImageView) view.findViewById(R.id.channer);
        
         return view;
     }
@@ -47,6 +51,13 @@ public class HomePage extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), ChannerMessage.class);
+                startActivity(intent);
+            }
+        });
         initData();
 
         viewPager.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
@@ -68,8 +79,6 @@ public class HomePage extends Fragment {
         });
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         tabLayout.setupWithViewPager(viewPager);
-        viewPager.setOffscreenPageLimit(3);
-
     }
 
     private void initData() {

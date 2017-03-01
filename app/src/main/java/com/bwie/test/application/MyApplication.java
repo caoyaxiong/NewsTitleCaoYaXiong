@@ -2,11 +2,16 @@ package com.bwie.test.application;
 
 import android.app.Application;
 import android.net.http.X509TrustManagerExtensions;
+import android.support.v7.app.AppCompatDelegate;
+import android.util.Log;
 
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.PushAgent;
+
 
 import org.xutils.x;
 
@@ -17,9 +22,15 @@ import org.xutils.x;
  */
 
 public class MyApplication extends Application{
+    public static boolean frag;
     @Override
     public void onCreate() {
         super.onCreate();
+        frag = true;
+        // 默认设置为日间模式
+        AppCompatDelegate.setDefaultNightMode(
+                AppCompatDelegate.MODE_NIGHT_NO);
+
         x.Ext.init(this);
         ImageLoaderConfiguration.Builder config = new ImageLoaderConfiguration.Builder(this);
         config.threadPriority(Thread.NORM_PRIORITY - 2);
@@ -31,5 +42,20 @@ public class MyApplication extends Application{
 
         // Initialize ImageLoader with configuration.
         ImageLoader.getInstance().init(config.build());
+        PushAgent mPushAgent = PushAgent.getInstance(this);
+//注册推送服务，每次调用register方法都会回调该接口
+        mPushAgent.register(new IUmengRegisterCallback() {
+
+            @Override
+            public void onSuccess(String deviceToken) {
+                //注册成功会返回device token
+                Log.i("TAG", "onSuccess: "+deviceToken);
+            }
+
+            @Override
+            public void onFailure(String s, String s1) {
+
+            }
+        });
     }
 }

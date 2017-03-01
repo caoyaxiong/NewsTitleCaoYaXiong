@@ -3,8 +3,10 @@
     android:layout_width="match_parent"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
+    android:background="@color/backgroundColor"
     android:layout_height="match_parent">
 <TextView
+    android:background="@color/backgroundColor"
     android:id="@+id/text_item1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

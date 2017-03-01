@@ -75,6 +75,7 @@ public class TitleFragment extends Fragment implements PullToRefreshListView.OnR
         //同时支持上拉加载和下拉刷新
         plv.setMode(PullToRefreshBase.Mode.BOTH);
         plv.setOnRefreshListener(this);
+        
     }
 
     @Override

@@ -7,7 +7,15 @@ package com.bwie.test.Utils;
  */
 
 public class HttpContent {
-   
+    public static final String[] VIDEO_ID={"V9LG4B3A0","V9LG4CHOR","V9LG4E6VR","00850FRB"};
+    // 热点视频
+    public static final String VIDEO_HOT_ID = "V9LG4B3A0";
+    // 娱乐视频
+    public static final String VIDEO_ENTERTAINMENT_ID = "V9LG4CHOR";
+    // 搞笑视频
+    public static final String VIDEO_FUN_ID = "V9LG4E6VR";
+    // 精品视频
+    public static final String VIDEO_CHOICE_ID = "00850FRB";
     public static final String[] HTTP_ID={"T1370583240249","T1348649654285","T1348648517839","T1348648650048","T1348654151579","T1348648037603","T1350383429665","T1348648141035","T1348649580692","T1348654060988","T1348649079062","T1348648756099"};
     public static final String HOUSE_ID = "5YyX5Lqs";// 房产id
     public static final String FOOTBALL_ID = "T1399700447917";// 足球
@@ -52,5 +60,9 @@ public class HttpContent {
     public static String getUrl(int i){
         String url= "http://c.m.163.com/nc/article/headline/"+HTTP_ID[i]+"/0-20.html";
         return url;
+    }
+    public static String getVideoUrl(int a){
+        String videoUrl="http://c.3g.163.com/nc/video/list/"+VIDEO_ID[a]+"/n/10-10.html";
+        return videoUrl;
     }
 }

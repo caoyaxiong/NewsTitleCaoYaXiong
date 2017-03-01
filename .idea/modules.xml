@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NewsTitleCaoYaXiong.iml" filepath="$PROJECT_DIR$/NewsTitleCaoYaXiong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PushSDK/PushSDK.iml" filepath="$PROJECT_DIR$/PushSDK/PushSDK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PushSDK1/PushSDK1.iml" filepath="$PROJECT_DIR$/PushSDK1/PushSDK1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PushSDK2/PushSDK2.iml" filepath="$PROJECT_DIR$/PushSDK2/PushSDK2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
     </modules>

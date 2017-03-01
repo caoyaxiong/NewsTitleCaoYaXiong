@@ -28,4 +28,7 @@ dependencies {
     compile 'org.xutils:xutils:3.3.40'
     compile project(':library')
     compile files('libs/imageLoader.jar')
+    compile 'fm.jiecao:jiecaovideoplayer:2.0'
+    compile project(':PushSDK2')
+    compile files('libs/mta-sdk-1.6.2.jar')
 }

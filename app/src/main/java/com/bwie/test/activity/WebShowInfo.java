@@ -6,6 +6,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.bwie.test.R;
+import com.umeng.message.PushAgent;
 
 import java.security.PublicKey;
 
@@ -23,6 +24,7 @@ public class WebShowInfo extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webview_show_item);
+        PushAgent.getInstance(this).onAppStart();
         init();
         
     }
